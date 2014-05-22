@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
+<link rel="stylesheet" type="text/css" href="http://junglebrains.com/wp/testing/CukooReminder_Mobile/custom.css" /> 
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> 
+<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/1.1.0/jqm-datebox-1.1.0.mode.datebox.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+<script src="script.js"></script>
+
+
+<style>
+    #dropdown { padding: .5em 1em; text-decoration: none; }
+    
+  </style>
+</head>
+
+
+
+<body>
+        <div data-role="page" id="page1">
+            <div data-role="header">
+                 <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+    </h1>
+    <h1>Cuckoo Reminders</h1>
+                <div data-role="navbar" id="Nav">
+                    <ul>
+                        <li>
+                            <a data-role="button" class="ui-btn-active">Set Reminders</a>
+                        </li>
+                        <li>
+                            <a data-role="button" id="Remind1" href="#ViewReminders" >View Reminders</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <a data-role="button" class="ui-btn-green" id="Remind1" href="#Remind1">1</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a data-role="button" class="ui-btn-blue" id="Remind4" href="indexMay5_4.html">4</a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a data-role="button" class="ui-btn-red" id="Remind7" href="#Remind7">7</a>
+                    </div>
+                    <div class="ui-block-a">
+                        <a data-role="button" class="ui-btn-green" id="Remind2" href="indexMay5_2.html">2</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a data-role="button" class="ui-btn-blue" id="Remind5" href="#Remind5">5</a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a data-role="button" class="ui-btn-red" id="Remind8" href="#Remind8">8</a>
+                    </div>
+                    <div class="ui-block-a">
+                        <a data-role="button" class="ui-btn-green" id="Remind3" href="indexMay5_3.html">3</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a data-role="button" class="ui-btn-blue" id="Remind6" href="Remind6">6</a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a data-role="button" class="ui-btn-red" id="Remind9" href="#Remind9">9</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div data-role="page" id="ViewReminder">
+            <div data-role="header">
+                <h1>Header</h1>
+            </div>
+            <div data-role="content"></div>
+        </div>
+        
+
+
+
+
+        <div data-role="page" id="Remind1" data-title="Green Reminder 1">
+            <div data-role="header">
+                 <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+                 </h1><h1>Cuckoo Reminders</h1>
+            </div>
+            
+            <div id= "writevalout" data-role="main" class="ui-content" style=background-color:lightgreen;">
+   			<label>
+      		<select name="device" id="devicenamevalwrite">
+          	<option value="GreenReminder1">Set Green Reminder 1</option>
+          	<option value="GreenReminder2">Set Green Reminder 2</option>
+        	</select>
+      		</label>
+            <div name="device" id="devicenamevalwrite" value="GreenReminder1">
+                <fieldset class="ui-field-contain" >
+                <label> <h2 align="center"> Select Reminder 1 </h2>
+                <select name="value" id="writevalue" placeholder="Set Green Reminder" >
+                <option value="keys">Keys</option>
+                <option value="stove">Stove</option>
+                <option value="wallet">Wallet</option>
+                <option value="homework">Homework</option>
+                <option value="napTime">Nap Time</option>
+                <option value="Lunch">Lunch Time</option>
+                <option value="nothing">Off</option>
+                </select>
+                </fieldset>
+                </label>
+			<label for="mydate"></label>
+			<input name="mydate" id="mydate" type="date" data-role="datebox" data-options='{"mode": "timebox"}' placeholder="Set Reminder Time">
+
+			<button id="writevalout">Set Reminder</button>
+                <h2 id="writeresp"></h2>
+                </div>
+
+				</div>
+				<p></p>
+
+<div id="readvaluesin">
+    		<label>Device Name<input type="text" id="devicenameval" value="" placeholder="enter name of device"></label>
+    			<h2></h2>
+    		<button id="getrecordbydevice">Latest reading</button>
+    	</div>
+    	
+    	<div id="readreqresp">	
+            <h2 id="singleval"></h2>
+    	</div>
+        
+        </div>
+</div>
+
+
+
+
+
+        <div data-role="page" id="Remind2" data-title="Green Reminder 1">
+            <div data-role="header">
+                <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+                 </h1><h1>Cuckoo Reminders</h1>
+            </div>
+            
+            <div id= "writevalout" data-role="main" class="ui-content" style=background-color:lightgreen;">
+   			<label>
+      		<select name="device" id="devicenamevalwrite">
+          	<option value="GreenReminder2">Set Green Reminder 2</option>
+        	</select>
+      		</label>
+            <div name="device" id="devicenamevalwrite" value="GreenReminder2">
+                <fieldset class="ui-field-contain" >
+                <label> <h2 align="center"> Select Reminder 2 </h2>
+                <select name="value" id="writevalue" placeholder="Set Green Reminder" >
+                <option value="keys">Keys</option>
+                <option value="stove">Stove</option>
+                <option value="wallet">Wallet</option>
+                <option value="homework">Homework</option>
+                <option value="napTime">Nap Time</option>
+                <option value="Lunch">Lunch Time</option>
+                </select>
+                </fieldset>
+                </label>
+			<label for="mydate"></label>
+			<input name="mydate" id="mydate" type="date" data-role="datebox" data-options='{"mode": "timebox"}' placeholder="Set Reminder Time">
+
+			<button id="writevalout">write value</button>
+                <h2 id="writeresp"></h2>
+                </div>
+
+				</div>
+				
+				<p></p>
+
+		<div>
+			<div id="readvaluesin">
+    		<label>Device Name<input type="text" id="devicenameval" value="" placeholder="enter name of device"></label>
+    			<h2></h2>
+    		<button id="getrecordbydevice">Latest reading</button>
+    	</div>
+    	<div id="readreqresp">	
+            <h2 id="singleval"></h2>
+    	</div>
+    	
+        </div>
+        </div>
+        
+        
+        
+        
+        
+        <div data-role="page" id="Remind3" data-title="Green Reminder 1"> 
+            <div data-role="header">
+                 <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+    </h1>
+    <h1>Cuckoo Reminders</h1>
+                <div data-role="navbar" id="Nav">
+                    <ul>
+                        <li>
+                            <a data-role="button" class="ui-btn-active" href="#page1">Set Reminders</a>
+                        </li>
+                        <li>
+                            <a data-role="button" id="Remind1" href="#ViewReminders" >View Reminders</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+           
+           
+            <body>
+       
+            <div id= "writevalout" data-role="main" class="ui-content" style=background-color:lightgreen;">
+   			<label>
+      		<select name="device" id="devicenamevalwrite">
+          	<option value="GreenReminder2">Set Green Reminder 2</option>
+        	</select>
+      		</label>
+            <div name="device" id="devicenamevalwrite" value="GreenReminder2">
+                <fieldset class="ui-field-contain" >
+                <label> <h2 align="center"> Select Reminder 2 </h2>
+                <select name="value" id="writevalue" placeholder="Set Green Reminder" >
+                <option value="keys">Keys</option>
+                <option value="stove">Stove</option>
+                <option value="wallet">Wallet</option>
+                <option value="homework">Homework</option>
+                <option value="napTime">Nap Time</option>
+                <option value="Lunch">Lunch Time</option>
+                </select>
+                </fieldset>
+                </label>
+			<label for="mydate"></label>
+			<input name="mydate" id="mydate" type="date" data-role="datebox" data-options='{"mode": "timebox"}' placeholder="Set Reminder Time">
+
+			<div >
+ 			<a data-role="button" id="writevalout">write value</a>
+			
+                <h2 id="writeresp"></h2>
+                </div>
+                
+                </div>
+
+				</div>
+				
+				<p></p>
+
+		<div>
+			<div id="readvaluesin">
+    		<label>Device Name<input type="text" id="devicenameval" value="" placeholder="enter name of device"></label>
+    			<h2></h2>
+    		<button id="getrecordbydevice">Latest reading</button>
+    	</div>
+    	<div id="readreqresp">	
+            <h2 id="singleval"></h2>
+    	</div>
+    	
+        </div>
+        </div>
+        
+        </div>
+            
+            
+            
+        </body>
+        
+        
+        
+    
+    
+       
+    
+        
+        
+        
+        
+        
+        
+        <div data-role="page" id="Remind5" data-title="Green Reminder 1">
+            <div data-role="header">
+                <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+                 </h1><h1>Cuckoo Reminders</h1>
+            </div>
+            <div data-role="content"></div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div data-role="page" id="Remind6" data-title="Green Reminder 1">
+            <div data-role="header">
+                <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+                 </h1><h1>Cuckoo Reminders</h1>
+            </div>
+            <div data-role="content"></div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div data-role="page" id="Remind7" data-title="Green Reminder 1">
+            <div data-role="header">
+                <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+                 </h1><h1>Cuckoo Reminders</h1>
+            </div>
+            <div data-role="content"></div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div data-role="page" id="Remind8" data-title="Green Reminder 1">
+            <div data-role="header">
+                <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+                 </h1><h1>Cuckoo Reminders</h1>
+            </div>
+            <div data-role="content"></div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div data-role="page" id="Remind10" data-title="Green Reminder 1">
+            <div data-role="header">
+                <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+                 </h1><h1>Cuckoo Reminders</h1>
+            </div>
+            <div data-role="content"></div>
+        </div>
+        
+        
+        
+        
+        
+        <div data-role="page" id="Remind9" data-title="Green Reminder 1">
+            <div data-role="header">
+                 <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+                 </h1><h1>Cuckoo Reminders</h1>
+            </div>
+            
+            <div id= "writevalout" data-role="main" class="ui-content" style=background-color:lightgreen;">
+   			<label>
+      		<select name="device" id="devicenamevalwrite">
+          	<option value="GreenReminder1">Set Green Reminder 1</option>
+          	<option value="GreenReminder2">Set Green Reminder 2</option>
+        	</select>
+      		</label>
+            <div name="device" id="devicenamevalwrite" value="GreenReminder1">
+                <fieldset class="ui-field-contain" >
+                <label> <h2 align="center"> Select Reminder 1 </h2>
+                <select name="value" id="writevalue" placeholder="Set Green Reminder" >
+                <option value="keys">Keys</option>
+                <option value="stove">Stove</option>
+                <option value="wallet">Wallet</option>
+                <option value="homework">Homework</option>
+                <option value="napTime">Nap Time</option>
+                <option value="Lunch">Lunch Time</option>
+                </select>
+                </fieldset>
+                </label>
+			<label for="mydate"></label>
+			<input name="mydate" id="mydate" type="date" data-role="datebox" data-options='{"mode": "timebox"}' placeholder="Set Reminder Time">
+
+			<button id="writevalout">write value</button>
+                <h2 id="writeresp"></h2>
+                </div>
+
+				</div>
+				<p></p>
+
+<div id="readvaluesin">
+    		<label>Device Name<input type="text" id="devicenameval" value="" placeholder="enter name of device"></label>
+    			<h2></h2>
+    		<button id="getrecordbydevice">Latest reading</button>
+    	</div>
+    	
+    	<div id="readreqresp">	
+            <h2 id="singleval"></h2>
+    	</div>
+        
+        </div>
+</div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
+       
+       
+        <div data-role="page" id="ViewReminders">
+        <div data-role="header">
+                 <h1><img align="middle" src="http://junglebrains.com/wp/testing/CukooReminder_Mobile/Bird_front1.png">
+    </h1>
+    <h1>Cuckoo Reminders</h1>
+            </div>
+            <div>
+            
+            <div id="readvaluesin">
+    		<label>Device Name<input type="text" id="devicenameval" value="" placeholder="enter name of device"></label>
+    			<h2></h2>
+    		<button id="getrecordbydevice">Latest reading</button>
+    	</div>
+    	<div id="readreqresp">	
+            <h2 id="singleval"></h2>
+    	</div>
+        
+
+
+            </div>
+            
+        
+    	
+            <div data-role="content">
+                <ol data-role="listview" data-inset="true">
+                    <li id="DeviceName1" data-theme="b" data-filtertext="Test">Reminder Not Set</li>
+                    <li>Testtttt</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                </ol>
+            </div>
+        </div>
+    </body>
+
+</html>
